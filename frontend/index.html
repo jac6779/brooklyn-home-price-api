@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brooklyn Home Price Predictor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Brooklyn Home Price Predictor</h1>
+      <p class="subtitle">
+        Estimate Brooklyn residential sale prices from property features.
+      </p>
+
+      <form id="predict-form">
+        <div class="grid">
+          <label>
+            Building Age (Years)
+            <input type="number" id="build_age_yrs" name="build_age_yrs" required />
+          </label>
+
+          <label>
+            Distance to Station (miles)
+            <input
+              type="number"
+              step="0.01"
+              id="dist_to_station"
+              name="dist_to_station"
+              required
+            />
+          </label>
+
+          <label>
+            Gross Square Feet
+            <input type="number" id="gross_sqft" name="gross_sqft" required />
+          </label>
+
+          <label>
+            Within Half Mile
+            <select id="within_half_mi" name="within_half_mi" required>
+              <option value="">Select one</option>
+              <option value="1">1</option>
+              <option value="0">0</option>
+            </select>
+          </label>
+
+          <label>
+            Neighborhood
+            <select id="neighborhood" name="neighborhood" required>
+              <option value="">Select a neighborhood</option>
+              <option value="bath_beach">Bath Beach</option>
+              <option value="bay_ridge">Bay Ridge</option>
+              <option value="bedford_stuyvesant">Bedford Stuyvesant</option>
+              <option value="bensonhurst">Bensonhurst</option>
+              <option value="bergen_beach">Bergen Beach</option>
+              <option value="boerum_hill">Boerum Hill</option>
+              <option value="borough_park">Borough Park</option>
+              <option value="brighton_beach">Brighton Beach</option>
+              <option value="brooklyn_heights">Brooklyn Heights</option>
+              <option value="brownsville">Brownsville</option>
+              <option value="bushwick">Bushwick</option>
+              <option value="canarsie">Canarsie</option>
+              <option value="carroll_gardens">Carroll Gardens</option>
+              <option value="clinton_hill">Clinton Hill</option>
+              <option value="cobble_hill">Cobble Hill</option>
+              <option value="cobble_hill_west">Cobble Hill West</option>
+              <option value="coney_island">Coney Island</option>
+              <option value="crown_heights">Crown Heights</option>
+              <option value="cypress_hills">Cypress Hills</option>
+              <option value="dyker_heights">Dyker Heights</option>
+              <option value="east_new_york">East New York</option>
+              <option value="flatbush_central">Flatbush Central</option>
+              <option value="flatbush_east">Flatbush East</option>
+              <option value="flatbush_lefferts_garden">Flatbush Lefferts Garden</option>
+              <option value="flatbush_north">Flatbush North</option>
+              <option value="flatlands">Flatlands</option>
+              <option value="fort_greene">Fort Greene</option>
+              <option value="gerritsen_beach">Gerritsen Beach</option>
+              <option value="gowanus">Gowanus</option>
+              <option value="gravesend">Gravesend</option>
+              <option value="greenpoint">Greenpoint</option>
+              <option value="kensington">Kensington</option>
+              <option value="madison">Madison</option>
+              <option value="manhattan_beach">Manhattan Beach</option>
+              <option value="marine_park">Marine Park</option>
+              <option value="midwood">Midwood</option>
+              <option value="mill_basin">Mill Basin</option>
+              <option value="ocean_hill">Ocean Hill</option>
+              <option value="ocean_parkway_north">Ocean Parkway North</option>
+              <option value="ocean_parkway_south">Ocean Parkway South</option>
+              <option value="old_mill_basin">Old Mill Basin</option>
+              <option value="park_slope">Park Slope</option>
+              <option value="park_slope_south">Park Slope South</option>
+              <option value="prospect_heights">Prospect Heights</option>
+              <option value="red_hook">Red Hook</option>
+              <option value="seagate">Seagate</option>
+              <option value="sheepshead_bay">Sheepshead Bay</option>
+              <option value="sunset_park">Sunset Park</option>
+              <option value="williamsburg_central">Williamsburg Central</option>
+              <option value="williamsburg_east">Williamsburg East</option>
+              <option value="williamsburg_north">Williamsburg North</option>
+              <option value="williamsburg_south">Williamsburg South</option>
+              <option value="windsor_terrace">Windsor Terrace</option>
+              <option value="wyckoff_heights">Wyckoff Heights</option>
+            </select>
+          </label>
+
+          <label>
+            Building Class Category
+            <select id="building_class_category" name="building_class_category" required>
+              <option value="">Select a building class</option>
+              <option value="one_family_dwellings">One Family Dwellings</option>
+              <option value="two_family_dwellings">Two Family Dwellings</option>
+              <option value="three_family_dwellings">Three Family Dwellings</option>
+              <option value="rentals_elevator_apartments">Rentals Elevator Apartments</option>
+              <option value="rentals_walkup_apartments">Rentals Walkup Apartments</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button type="submit">Get Prediction</button>
+        </div>
+      </form>
+
+      <section id="result" class="result hidden">
+        <h2>Prediction</h2>
+        <p id="prediction-text"></p>
+        <pre id="raw-response"></pre>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
